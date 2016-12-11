@@ -1,16 +1,24 @@
 import React, { Component } from 'react';
 import { Table,Grid,Row,Col } from 'react-bootstrap';
+import fetch from 'isomorphic-fetch';
 
 export default class CategoryListingPage extends Component {
 
+  constructor(props){
+    super(props);
+    this.state = {categories: []};
+  }
+
+  componentDidMount() {
+    const endpoint = this.props.route.params.endpoint;
+    fetch(endpoint)
+      .then((response) => response.json())
+      .then(function(categories) {
+          this.setState({ categories });
+      }.bind(this));
+   }
+
   render() {
-    const categoryList = [
-        {code:"LG", name:"Legging",color:"Orange"},
-        {code:"DS", name:"Dress",color:"Green"},
-        {code:"SW", name:"Sweater",color:"Pink"},
-        {code:"CO", name:"Coat",color:"Orange"},
-        {code:"OT", name:"Other",color:"Green"},
-      ]
     return (
     <Grid>
       <Row>
@@ -26,7 +34,7 @@ export default class CategoryListingPage extends Component {
               </tr>
             </thead>
             <tbody>
-              {categoryList.map(function(row, i) {
+              {this.state.categories.map(function(row, i) {
                 return (
                   <tr key={i}>
                     <td>{i+1}</td>

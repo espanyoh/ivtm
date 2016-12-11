@@ -4,10 +4,7 @@ import logo from '../../logo.svg';
 import {Link} from 'react-router';
 
 export default class Header extends Component {
-  constructor(props){
-    super(props);
-    console.log(props);
-  }
+
   render() {
     const header = this.props.route.params.header;
     return (

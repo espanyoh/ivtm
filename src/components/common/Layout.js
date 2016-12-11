@@ -13,9 +13,9 @@ export default class Layout extends Component {
     const props = this.props;
     return (
       <Router history={browserHistory}>
-        <Route path='/' component={Header} params={props.header}>
+        <Route path='/' component={Header} params={props.config}>
           <IndexRoute component={HomePage} />
-          <route path='category' component={CategoryListingPage} />
+          <route path='category' component={CategoryListingPage} params={props.config} />
           <route path='product' component={ProductListingPage} />
           <route path='item' component={ItemListingPage} />
           <route path='about' component={AboutPage} />
