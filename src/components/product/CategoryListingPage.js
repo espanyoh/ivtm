@@ -4,6 +4,13 @@ import { Table,Grid,Row,Col } from 'react-bootstrap';
 export default class CategoryListingPage extends Component {
 
   render() {
+    const categoryList = [
+        {code:"LG", name:"Legging",color:"Orange"},
+        {code:"DS", name:"Dress",color:"Green"},
+        {code:"SW", name:"Sweater",color:"Pink"},
+        {code:"CO", name:"Coat",color:"Orange"},
+        {code:"OT", name:"Other",color:"Green"},
+      ]
     return (
     <Grid>
       <Row>
@@ -13,24 +20,22 @@ export default class CategoryListingPage extends Component {
             <thead>
               <tr>
                 <th>#</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Username</th>
+                <th>Category Code</th>
+                <th>Category Name</th>
+                <th>Color</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>1</td>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td>Jacob1122</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-              </tr>
+              {categoryList.map(function(row, i) {
+                return (
+                  <tr key={i}>
+                    <td>{i+1}</td>
+                    <td>{row.code}</td>
+                    <td>{row.name}</td>
+                    <td>{row.color}</td>
+                  </tr>
+                );
+              })}
             </tbody>
           </Table>
         </Col>

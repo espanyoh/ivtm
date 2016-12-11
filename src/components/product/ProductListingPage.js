@@ -4,12 +4,14 @@ import { Table,Grid,Row,Col } from 'react-bootstrap';
 export default class ProductListingPage extends Component {
 
   render() {
-    const categoryList = [
-        {code:"LG", name:"Legging",color:"Orange"},
-        {code:"DS", name:"Dress",color:"Green"},
-        {code:"SW", name:"Sweater",color:"Pink"},
-        {code:"CO", name:"Coat",color:"Orange"},
-        {code:"OT", name:"Other",color:"Green"},
+    const productList = [
+        {code:"LG001", name:"เลกกิ้งบุขนรุ่นธรรมดา",price:"199"},
+        {code:"LG002", name:"เลกกิ้งบุขนรุ่นติดลบ",price:"299"},
+        {code:"LG003", name:"เลกกิ้งหนัง",price:"350"},
+        {code:"LG004", name:"ซีทรู",price:"340"},
+        {code:"DS001", name:"ชุดเรือธงสั้น",price:"590"},
+        {code:"DS002", name:"ชุดเรือธงยาว",price:"720"},
+        {code:"SW001", name:"เสื้อไหมพรมสอดมือ",price:"550"},
       ]
     return (
     <Grid>
@@ -20,19 +22,19 @@ export default class ProductListingPage extends Component {
             <thead>
               <tr>
                 <th>#</th>
-                <th>Category Code</th>
-                <th>Category Name</th>
-                <th>Color</th>
+                <th>Product Code</th>
+                <th>Product Name</th>
+                <th>Price</th>
               </tr>
             </thead>
             <tbody>
-              {categoryList.map(function(row, i) {
+              {productList.map(function(row, i) {
                 return (
                   <tr key={i}>
                     <td>{i+1}</td>
                     <td>{row.code}</td>
                     <td>{row.name}</td>
-                    <td>{row.color}</td>
+                    <td>{row.price}</td>
                   </tr>
                 );
               })}
