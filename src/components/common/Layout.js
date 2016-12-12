@@ -6,6 +6,7 @@ import AboutPage from '../common/AboutPage';
 import CategoryListingPage from '../product/CategoryListingPage';
 import ProductListingPage from '../product/ProductListingPage';
 import ItemListingPage from '../product/ItemListingPage';
+import CategoryPage from '../product/CategoryPage';
 
 export default class Layout extends Component {
 
@@ -16,6 +17,7 @@ export default class Layout extends Component {
         <Route path='/' component={Header} params={props.config}>
           <IndexRoute component={HomePage} />
           <route path='category' component={CategoryListingPage} params={props.config} />
+          <route path='category/add' component={CategoryPage} params={props.config} />
           <route path='product' component={ProductListingPage} />
           <route path='item' component={ItemListingPage} />
           <route path='about' component={AboutPage} />

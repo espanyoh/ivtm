@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import logo from '../../logo.svg';
 //import { Button } from 'react-bootstrap';
-import {Link} from 'react-router';
+//import {Link} from 'react-router';
+import { Nav,NavItem,NavDropdown,MenuItem } from 'react-bootstrap';
 
 export default class Header extends Component {
 
@@ -14,12 +15,18 @@ export default class Header extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h2>{header}</h2>
         </div>
-        <div>
-          <Link to={'/category'} className="btn btn-primary">Category</Link>
-          <Link to={'/product'} className="btn btn-primary">Product</Link>
-          <Link to={'/item'} className="btn btn-primary">Item</Link>
 
-        </div>
+        <Nav bsStyle="tabs" activeKey="1" onSelect={this.handleSelect}>
+          <NavItem eventKey="1" href="/item">Item</NavItem>
+          <NavItem eventKey="2" title="Product" href="/product">Product</NavItem>
+          <NavDropdown eventKey="3" title="Category" id="nav-dropdown">
+            <MenuItem eventKey="3.1" href="/category">Listing</MenuItem>
+            <MenuItem divider />
+            <MenuItem eventKey="3.2" href="/category/add">Add</MenuItem>
+          </NavDropdown>
+        </Nav>
+
+
         {this.props.children}
       </div>
     );
